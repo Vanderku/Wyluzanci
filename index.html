@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.2.3.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pl&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Wyluzanci.pl - Społeczność Minecraft&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary: #5a8c9b;
+            --primary-dark: #4a7685;
+            --primary-light: #6aa0b0;
+            --secondary: #1a1a1a;
+            --accent: #70b0c0;
+            --text: #f0f0f0;
+            --text-muted: #b0b0b0;
+        }
+
+        header {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.7));
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(90, 140, 155, 0.5);
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background-color: rgba(90, 140, 155, 0.1);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(90, 140, 155, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(90, 140, 155, 0.6);
+            background: linear-gradient(45deg, var(--primary-light), var(--primary));
+        }
+
+        .discord-button {
+            background: linear-gradient(45deg, #5865F2, #4752c4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .discord-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+            background: linear-gradient(45deg, #4752c4, #5865F2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 180px 0 120px;
+            background: radial-gradient(circle at center, rgba(90, 140, 155, 0.1), transparent 70%),
+                        linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.9)),
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 65%, rgba(90, 140, 155, 0.05) 65%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(90, 140, 155, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-muted);
+        }
+
+        .server-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            border: 1px solid rgba(90, 140, 155, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-light);
+            margin-bottom: 5px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+            color: var(--text);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background-color: var(--secondary);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature i {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .community-section {
+            background-color: rgba(26, 26, 26, 0.7);
+        }
+
+        .community-content {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .community-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .community-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .discord-widget {
+            flex: 0 0 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-modes {
+            background-color: rgba(10, 10, 10, 0.9);
+        }
+
+        .mode-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(90, 140, 155, 0.2);
+            transition: all 0.3s ease;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(90, 140, 155, 0.2);
+        }
+
+        .mode-header {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mode-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .mode-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .mode-body p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .join-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .join-content p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .server-address {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 40px;
+            border: 1px solid var(--primary);
+        }
+
+        .server-address h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .address {
+            font-family: monospace;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(112, 176, 192, 0.5);
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 2px solid var(--primary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(90, 140, 155, 0.2);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background-color: rgba(26, 26, 26, 0.95);
+                backdrop-filter: blur(10px);
+                width: 80%;
+                height: calc(100vh - 80px);
+                padding: 30px;
+                transition: right 0.3s ease;
+                border-left: 2px solid var(--primary);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .server-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .info-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .discord-widget {
+                flex: 0 0 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .address {
+                font-size: 1.4rem;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;header-content&quot;&gt;
+                &lt;div class=&quot;logo&quot;&gt;
+                    &lt;i class=&quot;fas fa-users logo-icon&quot;&gt;&lt;/i&gt;
+                    &lt;h1&gt;Wyluzanci.pl&lt;/h1&gt;
+                &lt;/div&gt;
+                
+                &lt;button class=&quot;mobile-menu-btn&quot; id=&quot;mobileMenuBtn&quot;&gt;
+                    &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                
+                &lt;nav id=&quot;mainNav&quot;&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href=&quot;#home&quot;&gt;Strona główna&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;O nas&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#community&quot;&gt;Społeczność&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#minecraft&quot;&gt;Serwer Minecraft&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#join&quot;&gt;Dołącz&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+                
+                &lt;a href=&quot;https://discord.gg/NHkZMN26Nm&quot; target=&quot;_blank&quot; class=&quot;discord-button&quot;&gt;
+                    &lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt; Discord
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;section class=&quot;hero&quot; id=&quot;home&quot;&gt;
+        &lt;div class=&quot;floating-element&quot; style=&quot;top: 10%; left: 5%;&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;floating-element&quot; style=&quot;top: 20%; right: 10%; width: 30px; height: 30px;&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;floating-element&quot; style=&quot;bottom: 30%; left: 15%; width: 25px; height: 25px;&quot;&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;container hero-content&quot;&gt;
+            &lt;h2&gt;Witaj w społeczności Wyluzanci.pl!&lt;/h2&gt;
+            &lt;p&gt;Przyjazna społeczność graczy, gdzie znajdziesz nowych znajomych, dobrą zabawę i niezapomniane przygody. Dołącz do nas i przeżyj coś wyjątkowego!&lt;/p&gt;
+            &lt;a href=&quot;https://discord.gg/NHkZMN26Nm&quot; target=&quot;_blank&quot; class=&quot;discord-button&quot;&gt;
+                &lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt; Dołącz na Discord
+            &lt;/a&gt;
+            
+            &lt;div class=&quot;server-info&quot;&gt;
+                &lt;div class=&quot;info-card&quot;&gt;
+                    &lt;i class=&quot;fas fa-users&quot;&gt;&lt;/i&gt;
+                    &lt;h3 id=&quot;onlinePlayers&quot;&gt;850+&lt;/h3&gt;
+                    &lt;p&gt;Członków społeczności&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;info-card&quot;&gt;
+                    &lt;i class=&quot;fas fa-gamepad&quot;&gt;&lt;/i&gt;
+                    &lt;h3&gt;24/7&lt;/h3&gt;
+                    &lt;p&gt;Aktywna społeczność&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;info-card&quot;&gt;
+                    &lt;i class=&quot;fas fa-heart&quot;&gt;&lt;/i&gt;
+                    &lt;h3&gt;Przyjaźń&lt;/h3&gt;
+                    &lt;p&gt;Atmosfera jak u siebie&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;about&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;section-title&quot;&gt;
+                &lt;h2&gt;O naszej społeczności&lt;/h2&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;about-content&quot;&gt;
+                &lt;div class=&quot;about-text&quot;&gt;
+                    &lt;h3&gt;Wyluzanci.pl - Miejsce dla każdego&lt;/h3&gt;
+                    &lt;p&gt;Nasza społeczność powstała z pasji do gier i chęci stworzenia miejsca, gdzie każdy może czuć się swobodnie. Łączymy ludzi, którzy szukają dobrej zabawy, nowych znajomości i pozytywnej atmosfery.&lt;/p&gt;
+                    &lt;p&gt;Organizujemy regularne eventy, wspólne granie w różne gry, a także wieczory filmowe i inne aktywności. U nas znajdziesz miejsce, gdzie możesz być sobą!&lt;/p&gt;
+                    
+                    &lt;div class=&quot;features&quot;&gt;
+                        &lt;div class=&quot;feature&quot;&gt;
+                            &lt;i class=&quot;fas fa-handshake&quot;&gt;&lt;/i&gt;
+                            &lt;h4&gt;Przyjaźń&lt;/h4&gt;
+                            &lt;p&gt;Budujemy prawdziwe relacje i tworzymy zgraną społeczność.&lt;/p&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class=&quot;feature&quot;&gt;
+                            &lt;i class=&quot;fas fa-calendar-alt&quot;&gt;&lt;/i&gt;
+                            &lt;h4&gt;Eventy&lt;/h4&gt;
+                            &lt;p&gt;Regularne wydarzenia, konkursy i wspólne granie.&lt;/p&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class=&quot;feature&quot;&gt;
+                            &lt;i class=&quot;fas fa-comments&quot;&gt;&lt;/i&gt;
+                            &lt;h4&gt;Wsparcie&lt;/h4&gt;
+                            &lt;p&gt;Zawsze możesz liczyć na pomoc i życzliwe słowo.&lt;/p&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class=&quot;feature&quot;&gt;
+                            &lt;i class=&quot;fas fa-gamepad&quot;&gt;&lt;/i&gt;
+                            &lt;h4&gt;Gry&lt;/h4&gt;
+                            &lt;p&gt;Granie w różne gry, nie tylko Minecraft!&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;community-section&quot; id=&quot;community&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;section-title&quot;&gt;
+                &lt;h2&gt;Nasza społeczność na Discordzie&lt;/h2&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;community-content&quot;&gt;
+                &lt;div class=&quot;community-text&quot;&gt;
+                    &lt;h3&gt;Dołącz do naszej rodziny na Discordzie!&lt;/h3&gt;
+                    &lt;p&gt;Discord to serce naszej społeczności. Tutaj na bieżąco komunikujemy się, planujemy wspólne granie, dzielimy się memami i po prostu spędzamy czas w miłym towarzystwie.&lt;/p&gt;
+                    &lt;p&gt;Na naszym Discordzie znajdziesz:&lt;/p&gt;
+                    &lt;ul style=&quot;margin: 20px 0; padding-left: 20px; color: var(--text-muted);&quot;&gt;
+                        &lt;li style=&quot;margin-bottom: 10px;&quot;&gt;💬 Kanały do rozmów tekstowych i głosowych&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 10px;&quot;&gt;🎮 Organizację wspólnego grania w różne gry&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 10px;&quot;&gt;🏆 Turnieje i konkursy z nagrodami&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 10px;&quot;&gt;🎬 Wieczory filmowe i seanse&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 10px;&quot;&gt;🤝 Wsparcie i pomoc w każdej sytuacji&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;Nie czekaj! Dołącz do nas już teraz i poznaj niesamowitych ludzi, z którymi stworzysz niezapomniane wspomnienia.&lt;/p&gt;
+                    &lt;a href=&quot;https://discord.gg/NHkZMN26Nm&quot; target=&quot;_blank&quot; class=&quot;discord-button&quot; style=&quot;margin-top: 20px;&quot;&gt;
+                        &lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt; Dołącz na Discord
+                    &lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;discord-widget&quot;&gt;
+                    &lt;iframe src=&quot;https://discord.com/widget?id=1359180541639004351&amp;theme=dark&quot; width=&quot;100%&quot; height=&quot;500&quot; allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; sandbox=&quot;allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;minecraft&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;section-title&quot;&gt;
+                &lt;h2&gt;Nasz Serwer Minecraft&lt;/h2&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;join-content&quot;&gt;
+                &lt;p&gt;Oprócz aktywnej społeczności na Discordzie, prowadzimy również własny serwer Minecraft! To miejsce, gdzie możemy wspólnie budować, eksplorować i przeżywać przygody w świecie bloków.&lt;/p&gt;
+                
+                &lt;div class=&quot;mode-card&quot;&gt;
+                    &lt;div class=&quot;mode-header&quot;&gt;
+                        &lt;h3&gt;Survival&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mode-body&quot;&gt;
+                        &lt;p&gt;Klasyczny tryb przetrwania z przyjazną społecznością. Wykop surowce, buduj bazy, walcz z mobami i współpracuj z innymi graczami. Dołącz do nas i stwórz coś wyjątkowego!&lt;/p&gt;
+                        &lt;div class=&quot;server-address&quot; style=&quot;margin: 20px auto; display: block;&quot;&gt;
+                            &lt;h3&gt;Adres serwera:&lt;/h3&gt;
+                            &lt;div class=&quot;address&quot;&gt;wyluzanci.pl&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;a href=&quot;#join&quot; class=&quot;cta-button&quot;&gt;Dołącz do gry&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;join&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;section-title&quot;&gt;
+                &lt;h2&gt;Jak dołączyć?&lt;/h2&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;join-content&quot;&gt;
+                &lt;p&gt;Dołączenie do naszej społeczności jest bardzo proste! Możesz być z nami na kilka sposobów:&lt;/p&gt;
+                
+                &lt;div class=&quot;features&quot; style=&quot;margin-top: 40px;&quot;&gt;
+                    &lt;div class=&quot;feature&quot; style=&quot;text-align: center;&quot;&gt;
+                        &lt;i class=&quot;fab fa-discord&quot; style=&quot;color: #5865F2;&quot;&gt;&lt;/i&gt;
+                        &lt;h4&gt;Dołącz na Discord&lt;/h4&gt;
+                        &lt;p&gt;Kliknij w przycisk poniżej i dołącz do naszej społeczności na Discordzie&lt;/p&gt;
+                        &lt;a href=&quot;https://discord.gg/NHkZMN26Nm&quot; target=&quot;_blank&quot; class=&quot;discord-button&quot; style=&quot;padding: 10px 20px; margin-top: 10px;&quot;&gt;
+                            &lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt; Discord
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;feature&quot; style=&quot;text-align: center;&quot;&gt;
+                        &lt;i class=&quot;fas fa-gamepad&quot;&gt;&lt;/i&gt;
+                        &lt;h4&gt;Graj na serwerze&lt;/h4&gt;
+                        &lt;p&gt;Dołącz do naszego serwera Minecraft i graj razem z nami&lt;/p&gt;
+                        &lt;div style=&quot;margin-top: 15px;&quot;&gt;
+                            &lt;div style=&quot;font-family: monospace; color: var(--accent); font-size: 1.2rem;&quot;&gt;wyluzanci.pl&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;feature&quot; style=&quot;text-align: center;&quot;&gt;
+                        &lt;i class=&quot;fas fa-user-friends&quot;&gt;&lt;/i&gt;
+                        &lt;h4&gt;Bądź aktywny&lt;/h4&gt;
+                        &lt;p&gt;Uczestnicz w rozmowach, eventach i stwórz z nami coś wyjątkowego&lt;/p&gt;
+                        &lt;p style=&quot;color: var(--primary-light); font-weight: bold; margin-top: 10px;&quot;&gt;Czekamy właśnie na Ciebie!&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;footer id=&quot;contact&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;footer-content&quot;&gt;
+                &lt;div class=&quot;footer-column&quot;&gt;
+                    &lt;h3&gt;Wyluzanci.pl&lt;/h3&gt;
+                    &lt;p&gt;Przyjazna społeczność graczy, gdzie każdy znajdzie swoje miejsce. Dołącz do nas i stwórz z nami coś wyjątkowego!&lt;/p&gt;
+                    &lt;div class=&quot;social-icons&quot;&gt;
+                        &lt;a href=&quot;https://discord.gg/NHkZMN26Nm&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-facebook-f&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;footer-column&quot;&gt;
+                    &lt;h3&gt;Linki&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href=&quot;#home&quot;&gt;Strona główna&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;O nas&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#community&quot;&gt;Społeczność&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#minecraft&quot;&gt;Serwer Minecraft&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#join&quot;&gt;Dołącz&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;footer-column&quot;&gt;
+                    &lt;h3&gt;Kontakt&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;i class=&quot;fab fa-discord&quot;&gt;&lt;/i&gt; Discord: https://discord.gg/NHkZMN26Nm&lt;/li&gt;
+                        &lt;li&gt;&lt;i class=&quot;fas fa-globe&quot;&gt;&lt;/i&gt; www.wyluzanci.pl&lt;/li&gt;
+                        &lt;li&gt;&lt;i class=&quot;fas fa-server&quot;&gt;&lt;/i&gt; Minecraft: wyluzanci.pl&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;footer-column&quot;&gt;
+                    &lt;h3&gt;Współpraca&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Chcesz dołączyć?&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Zostań moderatorem&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Współpraca reklamowa&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;copyright&quot;&gt;
+                &lt;p&gt;&amp;copy; 2025 Wyluzanci.pl. Wszelkie prawa zastrzeżone. Minecraft jest znakiem towarowym firmy Mojang AB.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;script&gt;
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () =&gt; {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '&lt;i class=&quot;fas fa-times&quot;&gt;&lt;/i&gt;' 
+                : '&lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;';
+        });
+        
+        document.querySelectorAll('nav a').forEach(link =&gt; {
+            link.addEventListener('click', () =&gt; {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '&lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;';
+            });
+        });
+        
+        function updateOnlinePlayers() {
+            const onlinePlayersElement = document.getElementById('onlinePlayers');
+            let currentPlayers = 850;
+            
+            setInterval(() =&gt; {
+                const change = Math.floor(Math.random() * 21) - 5;
+                currentPlayers += change;
+                
+                if (currentPlayers &lt; 800) currentPlayers = 800;
+                if (currentPlayers &gt; 900) currentPlayers = 900;
+                
+                onlinePlayersElement.textContent = currentPlayers.toLocaleString() + '+';
+            }, 5000);
+        }
+        
+        document.querySelectorAll('a[href^=&quot;#&quot;]').forEach(anchor =&gt; {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        window.addEventListener('scroll', () =&gt; {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            
+            if(hero) {
+                hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () =&gt; {
+            updateOnlinePlayers();
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) =&gt; {
+                entries.forEach(entry =&gt; {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.mode-card, .feature, .info-card').forEach(el =&gt; {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
