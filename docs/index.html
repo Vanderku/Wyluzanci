@@ -317,7 +317,9 @@ footer {background-color:#0a0a0a; padding:60px 0 30px; border-top:2px solid var(
 </div>
 </div>
 </div>
-<div class="copyright">&copy; 2025 Wyluzanci.pl. Wszelkie prawa zastrzeżone. Minecraft jest znakiem towarowym firmy Mojang AB.</div>
+<div class="copyright">
+&copy; <span id="currentYear"></span> Wyluzanci.pl. Wszelkie prawa zastrzeżone. Minecraft jest znakiem towarowym firmy Mojang AB.
+</div>
 </div>
 </footer>
 
@@ -375,6 +377,14 @@ document.addEventListener('DOMContentLoaded',()=>{
         el.style.transition='opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
     });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 });
 </script>
 </body>
